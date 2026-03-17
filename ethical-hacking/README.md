@@ -1,117 +1,164 @@
-# Hacking Ético — Máster Profesional de FP en Ciberseguridad
+# 🧠 Ethical Hacking — Cybersecurity Master's Program
 
-Este módulo se centra en la identificación, explotación y mitigación de vulnerabilidades en sistemas informáticos mediante metodologías de penetration testing profesionales.
-Incluye prácticas de auditoría, pentesting en redes cableadas e inalámbricas, explotación de vulnerabilidades y análisis de aplicaciones web vulnerables.
+This module focuses on identifying, exploiting, and mitigating vulnerabilities in IT systems using professional penetration testing methodologies.
 
-
-## Resumen de prácticas
-
-### 🧩 Planificación y ejecución de auditorías de seguridad
-
-Se diseñó un plan de auditoría de ciberseguridad basado en escenarios reales:
-
-- Pruebas externas: 
-    Simulando ataques desde Internet (caja negra).
-
-- Pruebas internas: 
-    Evaluando amenazas desde dentro de la red corporativa (caja gris).
-
-- Simulacros Red Team: 
-    Combinando reconocimiento, explotación y movimiento lateral.
-
-Se establecieron fases de auditoría (requisitos, pruebas, reporting, cierre) y se evaluaron vulnerabilidades reales usando métricas CVSS.
-
-Entre las vulnerabilidades analizadas destacan:
-- Falla de ejecución remota en servidor de correo.
-- Inyección SQL en aplicaciones web.
-- Ejecución de código en servidor FTP interno.
-
-Cada vulnerabilidad se valoró en términos de impacto, explotabilidad y mitigación.
-
-
-### 📡 Seguridad en redes Wi-Fi corporativas
-
-Se auditaron tres configuraciones de red Wi-Fi (OPEN, WPA2-PSK y WPA2-Enterprise), identificando riesgos y mejoras:
-- Red OPEN: 
-    Sin cifrado ni control de acceso → riesgo de interceptación y suplantación.
-
-- WPA2-PSK: 
-    Una única clave compartida → falta de trazabilidad y control de dispositivos.
-
-- WPA2-Enterprise: 
-    Mejora la autenticación, pero requiere políticas MDM y segmentación.
-
-Se propusieron contramedidas:
-- Migrar a WPA3-Enterprise.
-- Implementar MDM, segmentación por VLAN y validación estricta de certificados.
-- Monitorización activa y rotación de credenciales.
-
-
-### 💻 Fases de pentesting con Metasploit
-
-Se construyó un laboratorio con Kali Linux y Metasploitable 2 para realizar un pentest completo:
-- Reconocimiento: 
-    Búsquedas dorking avanzadas (Google Hacking).
-
-- Escaneo: 
-    Detección de puertos y servicios con nmap -sV.
-
-- Identificación de vulnerabilidades: 
-    Con scripts vulscan.
-
-- Explotación: 
-    Uso del módulo vsftpd_234_backdoor en Metasploit, obteniendo acceso remoto al sistema.
-
-- Resultado: 
-    Comprensión práctica del flujo de un ataque controlado, desde el descubrimiento hasta la postexplotación.
-
-
-### 🧠 Cracking y persistencia en entornos Windows
-
-Se configuró un entorno de laboratorio con Windows 7 y Kali Linux para analizar técnicas ofensivas:
-- Cracking de contraseñas con Hashcat, utilizando diferentes algoritmos:
-    MD5 (-m 0)
-    NTLM (-m 1000)
-    NETNTLMv2 (-m 5600)
-    Kerberos TGS (-m 13100)
-
-- Explotación de la vulnerabilidad EternalBlue (MS17-010) mediante Metasploit, logrando acceso remoto.
-
-- Persistencia postexplotación: 
-    Mediante creación de servicios y claves de registro en Windows (sc create y reg add).
-
-Estas prácticas simulan ataques avanzados de tipo Red Team en entornos Windows.
-
-
-### 🌐 Vulnerabilidades web y pruebas con Burp Suite
-
-Se utilizaron Burp Suite, DVWA y SQLMap para realizar auditorías de seguridad web:
-- Ataque por fuerza bruta: 
-    Contra formularios de login con Burp Intruder.
-
-- Cross-Site Scripting (XSS) almacenado: 
-    Ejecución de scripts en el navegador del usuario.
-
-- Ejecución remota de comandos (RCE): 
-    Mediante inyección en parámetros.
-
-- Inyección SQL: 
-    Manipulación de consultas SQL y extracción de bases de datos con sqlmap.
-
-El objetivo fue comprender el impacto de las vulnerabilidades OWASP Top 10 y las mejores prácticas para mitigarlas.
-
-
-## 🧰 Herramientas y tecnologías utilizadas
-
-| Categoría | Herramientas / Tecnologías |
-|------------|----------------------------|
-| **Pentesting y explotación** | Metasploit, Nmap, Vulscan, Netcat |
-| **Cracking y autenticación** | Hashcat, RockYou, John the Ripper |
-| **Auditoría web** | Burp Suite, DVWA, SQLMap |
-| **Redes inalámbricas** | WPA2/WPA3, RADIUS, Wireshark |
-| **Sistemas operativos** | Kali Linux, Windows 7, Metasploitable 2 |
-| **Metodologías** | OWASP, CVSS, Red Team / Blue Team |
-
+It includes hands-on labs covering security auditing, wired and wireless network pentesting, vulnerability exploitation, and web application security testing.
 
 ---
-Estas prácticas reflejan la aplicación controlada de técnicas ofensivas y defensivas, con el objetivo de fortalecer la seguridad de sistemas, redes y aplicaciones en entornos profesionales.
+
+## 🧠 Lab Overview
+
+These exercises demonstrate controlled offensive security techniques applied in realistic environments, with the goal of understanding attacker behavior and strengthening defensive strategies.
+
+---
+
+## 📂 Lab Summary
+
+### 🧩 Security Audit Planning & Execution
+
+Design and execution of a cybersecurity audit plan based on real-world scenarios:
+
+- **External testing (Black Box):**  
+  Simulating attacks from the internet  
+
+- **Internal testing (Grey Box):**  
+  Evaluating threats from within the corporate network  
+
+- **Red Team simulations:**  
+  Combining reconnaissance, exploitation, and lateral movement  
+
+Defined audit phases:
+- Requirements  
+- Testing  
+- Reporting  
+- Closure  
+
+**Vulnerability assessment using CVSS metrics**
+
+**Key vulnerabilities identified:**
+- Remote Code Execution (RCE) in mail server  
+- SQL Injection in web applications  
+- Code execution in internal FTP server  
+
+Each vulnerability was evaluated in terms of:
+- Impact  
+- Exploitability  
+- Mitigation  
+
+---
+
+### 📡 Corporate Wi-Fi Security Assessment
+
+Evaluation of three wireless network configurations:
+
+- **OPEN network:**  
+  No encryption → high risk (interception, spoofing)  
+
+- **WPA2-PSK:**  
+  Shared key → lack of traceability and device control  
+
+- **WPA2-Enterprise:**  
+  Stronger authentication but requires proper policy enforcement  
+
+**Recommended countermeasures:**
+- Migration to WPA3-Enterprise  
+- Implementation of MDM  
+- VLAN segmentation  
+- Strict certificate validation  
+- Continuous monitoring and credential rotation  
+
+---
+
+### 💻 Pentesting Phases with Metasploit
+
+Lab environment using **Kali Linux** and **Metasploitable 2**:
+
+- **Reconnaissance:**  
+  Advanced dorking techniques (Google Hacking)  
+
+- **Scanning:**  
+  Service and port discovery (`nmap -sV`)  
+
+- **Vulnerability identification:**  
+  Using `vulscan`  
+
+- **Exploitation:**  
+  Metasploit module `vsftpd_234_backdoor`  
+
+**Result:**  
+Successful remote access to the target system and full understanding of a controlled attack lifecycle.
+
+---
+
+### 🧠 Password Cracking & Persistence (Windows Environment)
+
+Lab setup with **Windows 7** and **Kali Linux**:
+
+- **Password cracking with Hashcat**, using:
+  - MD5 (`-m 0`)  
+  - NTLM (`-m 1000`)  
+  - NETNTLMv2 (`-m 5600`)  
+  - Kerberos TGS (`-m 13100`)  
+
+- **Exploitation:**  
+  EternalBlue (MS17-010) via Metasploit  
+
+- **Post-exploitation persistence:**  
+  - Windows services (`sc create`)  
+  - Registry modifications (`reg add`)  
+
+**Result:**  
+Simulation of advanced Red Team attack scenarios in Windows environments.
+
+---
+
+### 🌐 Web Vulnerabilities & Testing with Burp Suite
+
+Security testing of vulnerable web applications using:
+
+- Burp Suite  
+- DVWA  
+- SQLMap  
+
+**Attacks performed:**
+
+- **Brute force attacks:**  
+  Login forms via Burp Intruder  
+
+- **Stored XSS:**  
+  Script execution in user browsers  
+
+- **Remote Command Execution (RCE):**  
+  Parameter injection  
+
+- **SQL Injection:**  
+  Database extraction using SQLMap  
+
+**Objective:**  
+Understand OWASP Top 10 vulnerabilities and their real-world impact, along with mitigation strategies.
+
+---
+
+## 🧰 Tools & Technologies
+
+| Category | Tools / Technologies |
+|----------|---------------------|
+| **Pentesting & Exploitation** | Metasploit, Nmap, Vulscan, Netcat |
+| **Password Cracking** | Hashcat, RockYou, John the Ripper |
+| **Web Security Testing** | Burp Suite, DVWA, SQLMap |
+| **Wireless Networks** | WPA2/WPA3, RADIUS, Wireshark |
+| **Operating Systems** | Kali Linux, Windows 7, Metasploitable 2 |
+| **Methodologies** | OWASP, CVSS, Red Team / Blue Team |
+
+---
+
+## 🎯 Key Takeaways
+
+These labs demonstrate the controlled application of offensive and defensive security techniques, focusing on:
+
+- Vulnerability discovery and exploitation  
+- Attack lifecycle understanding  
+- Real-world pentesting workflows  
+- Security posture improvement  
+
+---
