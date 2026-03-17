@@ -1,114 +1,183 @@
-# Bastionado de Redes y Sistemas — Máster Profesional de FP en Ciberseguridad
+# 🔒 Network & System Hardening — Cybersecurity Master's Program
 
-Este módulo se centra en la protección y endurecimiento de redes, servidores y sistemas operativos, aplicando metodologías de seguridad como el paradigma Zero Trust, la segmentación de redes, la autenticación multifactor y la configuración segura de servicios.
-
-
-## Resumen de prácticas
-
-### 🔐 Paradigma Zero Trust
-
-Se analizó el modelo Zero Trust, que establece que ningún usuario o sistema debe considerarse confiable por defecto.
-Se estudiaron soluciones de referencia como Zscaler Zero Trust Exchange y Fortinet ZTA, implementando políticas de acceso basadas en identidad, contexto y microsegmentación.
-
-- Objetivo: 
-    Minimizar la superficie de ataque y prevenir movimientos laterales en la red.
-
-
-### 🧱 Auditoría y propuesta de bastionado de una empresa
-
-Se evaluó el entorno TI de la empresa ficticia Venus SA, identificando debilidades como la falta de separación de entornos, ausencia de control de accesos y mala ubicación física de servidores.
-Se propusieron medidas de mitigación:
-
-Separar servicios en entornos seguros (web, gestión, copias).
-
-Definir roles de usuario y mínimos privilegios.
-
-Contratar personal cualificado y establecer políticas de seguridad y auditorías periódicas.
-
-
-### 🔑 Autenticación 2FA y MFA
-
-Se compararon los sistemas de autenticación de dos y múltiples factores, detallando sus ventajas y desventajas.
-
-- Ejemplos prácticos:
-    Gmail y Facebook con 2FA por SMS o app.
-
-Banca online con MFA mediante token físico.
-
-- Conclusión: 
-    Estas soluciones reducen drásticamente accesos no autorizados, aunque aumentan la complejidad operativa.
-
-
-### 📡 Implementación de servidor RADIUS
-
-Se configuró un servidor FreeRADIUS en Ubuntu para autenticar clientes Wi-Fi mediante WPA2-Enterprise.
-Se definieron clientes en clients.conf y se documentó la configuración de autenticación con hostapd.
-Aunque el entorno no contaba con adaptador físico, se demostró el proceso completo de instalación, configuración y validación de servicio.
-
-
-### 🧩 Filtrado MAC e IDS con Snort
-
-Se realizó un ejercicio práctico de filtrado de direcciones MAC en router doméstico y manipulación de MAC en Ubuntu para simular accesos restringidos.
-Posteriormente, se instaló Snort como IDS para monitorizar tráfico y detectar escaneos con Nmap desde Kali Linux.
-Los registros (snort.alert.fast) permitieron identificar tráfico sospechoso y validar la eficacia de las reglas.
-
-
-### 🕸️ Diseño de red segmentada con VLANs y DMZ
-
-Se diseñó una arquitectura de red con segmentación en VLANs (10, 20, 30 y 40) para aislar servicios críticos, gestión, empleados y red pública.
-Se implementó una DMZ con servidores web, DNS y VPN, protegida por dos firewalls (perimetral e interno).
-Se definieron reglas precisas de acceso por IP, puerto y protocolo, junto a medidas de seguridad en servicios en la nube (TLS, 2FA, CASB y backups).
-
-
-### ⚔️ Análisis de ataques DDoS y Web
-
-Se analizaron logs de Apache, SSH y FTP para identificar intentos de ataque DDoS, fuerza bruta y exfiltración de datos.
-La IP atacante interna 192.168.10.5 realizaba escaneos con Nmap y accesos anónimos FTP.
-
-- Contramedidas: 
-    Bloqueo temporal, monitorización en tiempo real y análisis de logs del firewall para trazabilidad del incidente.
-
-
-### 🧮 Revisión de permisos y auditoría de seguridad en Linux
-
-Se revisaron directorios y binarios con permisos inseguros (find / -perm) y posibles escaladas de privilegios mediante GTFOBins.
-
-También se analizaron:
-- Permisos en $PATH.
-- Carpetas compartidas inseguras.
-- Opciones de montaje en /etc/fstab.
-- Uso de borrado seguro con shred.
-
-- Objetivo: 
-    Eliminar configuraciones que permitan ejecución o escritura no controlada.
-
-
-### 🧰 Endurecimiento de SSH y controles de acceso remoto
-
-Se implementaron configuraciones avanzadas de bastionado SSH:
-- Bloqueo de acceso root remoto.
-- Desconexión tras 5 minutos de inactividad.
-- Autenticación por clave pública/privada.
-- Limitación por usuarios e IPs.
-- Desactivación de Port Forwarding y X11 Forwarding.
-- Uso de protocolos seguros (SSH v2, SHA2-512/256).
-- Registro detallado en /var/log/auth.log para envío al SOC.
-
-- Resultado: 
-    Conexión cifrada, autenticación reforzada y registro completo de actividad.
-
-
-## 🧰 Herramientas y tecnologías utilizadas
-
-| Categoría | Herramientas / Tecnologías |
-|------------|----------------------------|
-| **Redes y segmentación** | VLANs, DMZ, Firewalls, Proxy inverso |
-| **Autenticación y control** | FreeRADIUS, WPA2-Enterprise, 2FA/MFA |
-| **Monitorización y detección** | Snort, Nmap, UFW, IDS/IPS |
-| **Análisis y auditoría** | GTFOBins, find, chmod, fstab, whois |
-| **Protocolos y cifrado** | SSH, TLS, HTTPS, SHA2 |
-| **Modelos de seguridad** | Zero Trust, Seguridad perimetral, Control de acceso mínimo |
-
+This module focuses on securing and hardening networks, servers, and operating systems by applying modern security principles such as Zero Trust, network segmentation, multi-factor authentication, and secure service configuration.
 
 ---
-Estas prácticas demuestran la aplicación de estrategias de bastionado de redes y sistemas en entornos reales, priorizando la seguridad por capas, la segmentación lógica y el principio de mínimo privilegio.
+
+## 🧠 Lab Overview
+
+These labs demonstrate practical implementation of defensive security strategies aimed at reducing attack surface, preventing lateral movement, and enforcing strong access control mechanisms across systems and networks.
+
+---
+
+## 📂 Lab Summary
+
+### 🔐 Zero Trust Paradigm
+
+Analysis of the Zero Trust security model, where no user or system is trusted by default.
+
+Reference solutions explored:
+- Zscaler Zero Trust Exchange  
+- Fortinet ZTA  
+
+Implementation concepts:
+- Identity-based access control  
+- Context-aware policies  
+- Microsegmentation  
+
+**Objective:**  
+Minimize attack surface and prevent lateral movement within the network.
+
+---
+
+### 🧱 Security Audit & Hardening Proposal (Enterprise Scenario)
+
+Evaluation of a fictional company (**Venus S.A.**) identifying critical weaknesses:
+- Lack of environment separation  
+- Weak access control  
+- Poor physical server placement  
+
+**Mitigation strategies:**
+- Segregation of services (web, internal systems, backups)  
+- Role-based access control (RBAC) and least privilege  
+- Security policies, audits, and skilled personnel  
+
+---
+
+### 🔑 2FA & MFA Authentication
+
+Comparison of two-factor and multi-factor authentication mechanisms.
+
+**Examples:**
+- Gmail / Facebook (SMS / authenticator apps)  
+- Online banking (hardware tokens)  
+
+**Conclusion:**  
+Significantly reduces unauthorized access at the cost of increased operational complexity.
+
+---
+
+### 📡 RADIUS Server Implementation
+
+Configuration of a **FreeRADIUS server** on Ubuntu for Wi-Fi authentication using **WPA2-Enterprise**.
+
+Key steps:
+- Client definition (`clients.conf`)  
+- Authentication configuration with `hostapd`  
+
+Even without physical hardware, the full setup and validation process was documented.
+
+---
+
+### 🧩 MAC Filtering & IDS with Snort
+
+- MAC address filtering in a home router  
+- MAC spoofing in Ubuntu for controlled testing  
+
+Deployment of **Snort (IDS)** to:
+- Monitor network traffic  
+- Detect scans using Nmap (Kali Linux)  
+
+**Results:**
+- Detection of suspicious activity via logs (`snort.alert.fast`)  
+- Validation of IDS rules effectiveness  
+
+---
+
+### 🕸️ Network Segmentation with VLANs & DMZ
+
+Design of a segmented network architecture using VLANs:
+- VLAN 10: Critical services  
+- VLAN 20: Management  
+- VLAN 30: Employees  
+- VLAN 40: Public network  
+
+Implementation of a **DMZ** with:
+- Web server  
+- DNS  
+- VPN  
+
+Protected by:
+- Perimeter firewall  
+- Internal firewall  
+
+**Security measures:**
+- Access rules by IP, port, and protocol  
+- Cloud security (TLS, 2FA, CASB, backups)  
+
+---
+
+### ⚔️ DDoS & Web Attack Analysis
+
+Analysis of Apache, SSH, and FTP logs to detect:
+- DDoS attempts  
+- Brute-force attacks  
+- Data exfiltration  
+
+**Findings:**
+- Internal attacker (`192.168.10.5`) performing scans (Nmap) and anonymous FTP access  
+
+**Countermeasures:**
+- Temporary blocking  
+- Real-time monitoring  
+- Firewall log analysis for traceability  
+
+---
+
+### 🧮 Linux Security Auditing & Permissions Review
+
+Detection of insecure configurations and privilege escalation vectors:
+
+- `find / -perm` for insecure permissions  
+- GTFOBins exploitation vectors  
+- `$PATH` vulnerabilities  
+- Insecure shared directories  
+- `/etc/fstab` mount options  
+- Secure file deletion (`shred`)  
+
+**Objective:**  
+Eliminate unsafe configurations enabling unauthorized execution or access.
+
+---
+
+### 🧰 SSH Hardening & Remote Access Control
+
+Implementation of advanced SSH security configurations:
+
+- Disable root login  
+- Session timeout (5 minutes)  
+- Public/private key authentication  
+- User and IP restrictions  
+- Disable port forwarding & X11 forwarding  
+- Secure protocols (SSH v2, SHA2-512/256)  
+- Logging in `/var/log/auth.log` (SOC integration)  
+
+**Result:**  
+Secure encrypted connections, strong authentication, and full activity traceability.
+
+---
+
+## 🧰 Tools & Technologies
+
+| Category | Tools / Technologies |
+|----------|---------------------|
+| **Networking & Segmentation** | VLANs, DMZ, Firewalls, Reverse Proxy |
+| **Authentication & Access Control** | FreeRADIUS, WPA2-Enterprise, 2FA/MFA |
+| **Monitoring & Detection** | Snort, Nmap, UFW, IDS/IPS |
+| **Security Auditing** | GTFOBins, find, chmod, fstab, whois |
+| **Protocols & Encryption** | SSH, TLS, HTTPS, SHA2 |
+| **Security Models** | Zero Trust, Perimeter Security, Least Privilege |
+
+---
+
+## 🎯 Key Takeaways
+
+These labs demonstrate the practical application of system and network hardening strategies in realistic environments, focusing on:
+
+- Defense in depth  
+- Network segmentation  
+- Strong authentication  
+- Least privilege principle  
+- Continuous monitoring and auditing  
+
+---
