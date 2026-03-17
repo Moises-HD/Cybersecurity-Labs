@@ -1,111 +1,158 @@
-# 🛡️ Laboratorio de Ciberseguridad
+# 🛡️ Cybersecurity Lab
 
-Repositorio personal con las prácticas y proyectos realizados durante el Máster Profesional de FP en Ciberseguridad en Tecnologías de la Información.
-Incluye trabajos técnicos sobre análisis forense, bastionado de sistemas, hacking ético, gestión de incidentes, normativa y puesta en producción segura.
+Personal repository containing hands-on labs and projects developed during my Professional Master's Degree in Cybersecurity (Information Technology).
 
-El objetivo de este laboratorio es reflejar mi experiencia práctica aplicando herramientas y metodologías profesionales dentro del ámbito de la ciberseguridad.
+This repository covers practical work across key cybersecurity domains, including digital forensics, system hardening, ethical hacking, incident response, compliance, and secure deployment.
 
-## 📁 Contenidos del repositorio
-
-- 🕵️ [Análisis Forense](./analysis-forensics)
-- 🔒 [Bastionado de Redes y Sistemas](./system-hardening)
-- 🧠 [Hacking Ético](./ethical-hacking)
-- 🚨 [Incidentes de Ciberseguridad](./incident-response)
-- ⚖️ [Normativa de Ciberseguridad](./cybersecurity-regulations)
-- 🧱 [Puesta en Producción Segura](./secure-deployment)
-
-## 🔍 Análisis Forense
-
-Prácticas centradas en la adquisición y análisis de evidencias digitales, memoria RAM, dispositivos móviles, entornos cloud e IoT.
-Aplicación de técnicas de preservación de evidencias, cadena de custodia y redacción de informes periciales.
-
-- Carpeta: analysis-forensics/ 
-
-
-## 🧱 Bastionado de Redes y Sistemas
-
-Ejercicios orientados al endurecimiento de servidores y equipos, configuración segura de servicios, control de accesos y políticas de seguridad.
-Incluye prácticas sobre cortafuegos, SELinux/AppArmor, auditorías de configuración y automatización de parches.
-
-- Carpeta: system-hardening/
-
-
-## 🕵️‍♂️ Hacking Ético
-
-Simulación de auditorías de seguridad y pruebas de penetración siguiendo metodologías profesionales.
-Uso de herramientas como Nmap, Metasploit, Burp Suite, Hydra y técnicas de explotación controlada en entornos de laboratorio.
-
-- Carpeta: ethical-hacking/
-
-
-## 🚨 Incidentes de Ciberseguridad
-
-Procedimientos de respuesta ante incidentes, análisis de logs, detección temprana de amenazas y coordinación del proceso de recuperación.
-Prácticas relacionadas con SIEM (como Wazuh o Splunk), clasificación de incidentes y elaboración de informes post-mortem.
-
-- Carpeta: incident-response/
-
-
-## ⚖️ Normativa de Ciberseguridad
-
-Estudio de las principales normativas y estándares aplicables al ámbito de la seguridad informática:
-
-- ISO/IEC 27001
-
-- ENS (Esquema Nacional de Seguridad)
-
-- RGPD y LOPDGDD
-
-- OWASP y NIST
-
-- Carpeta: cybersecurity-regulations/
-
-
-## 🚀 Puesta en Producción Segura (en curso)
-
-Asignatura orientada a la implementación segura de sistemas en entornos productivos.
-Incluye prácticas sobre control de versiones, despliegue con Docker, DevSecOps, monitorización y automatización de pipelines CI/CD con enfoque en seguridad.
-
-- Carpeta: secure-deployment/
-
-
-## 🧰 Herramientas y Tecnologías utilizadas
-
-Algunas de las herramientas aplicadas a lo largo de las prácticas incluyen:
-
-| Categoría | Herramientas |
-|------------|--------------|
-| **Análisis forense** | Volatility, Magnet Acquire, Binwalk, iLEAPP |
-| **Bastionado y sistemas** | Linux (Debian/CentOS), iptables, auditd, OpenVAS |
-| **Pentesting** | Nmap, Metasploit, Burp Suite, Hydra, Nikto |
-| **Incidentes y SIEM** | Wazuh, Splunk, OSSEC, Sysmon |
-| **Automatización y despliegue** | Docker, Git, Jenkins, Ansible |
-| **Normativa y seguridad** | OWASP Top 10, ISO 27001, ENS, GDPR |
-
-
-## 🎯 Objetivo del repositorio
-
-Reflejar las competencias prácticas adquiridas durante el máster, aplicando tanto medidas defensivas como ofensivas, y mostrando un enfoque integral de la ciberseguridad:
-
-Prevención, detección, respuesta y mejora continua.
-
-
-## 📅 Estado actual
-
-Actualmente cursando la asignatura Puesta en Producción Segura, última del programa formativo.
-El resto de módulos están completados y documentados en este repositorio.
-
-
-## ⚠️ Aviso
-
-Las prácticas y ejemplos incluidos tienen fines educativos y se han realizado en entornos controlados.
-No se incluyen datos reales ni configuraciones pertenecientes a sistemas en producción.
-
-
-## 🧾 **Licencia:** [MIT](./LICENSE)
-
+The goal of this lab is to showcase my practical experience applying professional tools, methodologies, and security best practices.
 
 ---
-Este repositorio forma parte de mi desarrollo profesional en el ámbito de la ciberseguridad, combinando la parte técnica y la aplicación de buenas prácticas de seguridad.
 
+## 📁 Repository Contents
 
+- 🕵️ [Digital Forensics](./analysis-forensics)
+- 🔒 [System & Network Hardening](./system-hardening)
+- 🧠 [Ethical Hacking](./ethical-hacking)
+- 🚨 [Incident Response](./incident-response)
+- ⚖️ [Security Regulations & Compliance](./cybersecurity-regulations)
+- 🧱 [Secure Deployment](./secure-deployment)
+
+---
+
+## 🔍 Digital Forensics
+
+Hands-on labs focused on acquisition and analysis of digital evidence across multiple environments:
+
+- Memory (RAM) analysis  
+- Mobile devices  
+- Cloud environments  
+- IoT systems  
+
+Includes evidence preservation techniques, chain of custody procedures, and forensic reporting.
+
+📂 Folder: `analysis-forensics/`
+
+---
+
+## 🔒 System & Network Hardening
+
+Exercises focused on securing systems and infrastructure:
+
+- Secure server configuration  
+- Access control policies  
+- Firewall configuration  
+- SELinux / AppArmor  
+- Configuration auditing  
+- Patch management automation  
+
+📂 Folder: `system-hardening/`
+
+---
+
+## 🧠 Ethical Hacking
+
+Simulation of security audits and penetration testing following industry methodologies.
+
+Tools and techniques include:
+
+- Nmap  
+- Metasploit  
+- Burp Suite  
+- Hydra  
+- Controlled exploitation in lab environments  
+
+📂 Folder: `ethical-hacking/`
+
+---
+
+## 🚨 Incident Response
+
+Incident detection, analysis, and recovery processes:
+
+- Log analysis  
+- Threat detection  
+- Incident classification  
+- Post-incident reporting  
+
+Includes work with SIEM tools such as:
+
+- Wazuh  
+- Splunk  
+- OSSEC  
+- Sysmon  
+
+📂 Folder: `incident-response/`
+
+---
+
+## ⚖️ Security Regulations & Compliance
+
+Study and application of key cybersecurity frameworks and standards:
+
+- ISO/IEC 27001  
+- ENS (Spanish National Security Framework)  
+- GDPR  
+- OWASP  
+- NIST  
+
+📂 Folder: `cybersecurity-regulations/`
+
+---
+
+## 🧱 Secure Deployment *(In Progress)*
+
+Focused on secure system deployment in production environments:
+
+- Version control best practices  
+- Docker-based deployments  
+- DevSecOps principles  
+- Monitoring and observability  
+- CI/CD pipelines with security integration  
+
+📂 Folder: `secure-deployment/`
+
+---
+
+## 🧰 Tools & Technologies
+
+| Category | Tools |
+|----------|------|
+| **Digital Forensics** | Volatility, Magnet Acquire, Binwalk, iLEAPP |
+| **System Hardening** | Linux (Debian/CentOS), iptables, auditd, OpenVAS |
+| **Pentesting** | Nmap, Metasploit, Burp Suite, Hydra, Nikto |
+| **SIEM & Monitoring** | Wazuh, Splunk, OSSEC, Sysmon |
+| **Automation & DevOps** | Docker, Git, Jenkins, Ansible |
+| **Security Standards** | OWASP Top 10, ISO 27001, ENS, GDPR |
+
+---
+
+## 🎯 Objective
+
+To demonstrate practical cybersecurity skills across the full security lifecycle:
+
+**Prevention → Detection → Response → Continuous Improvement**
+
+---
+
+## 📅 Current Status
+
+Currently working on the **Secure Deployment** module (final stage of the program).  
+All other modules are completed and documented in this repository.
+
+---
+
+## ⚠️ Disclaimer
+
+All labs and examples are for **educational purposes only** and were conducted in controlled environments.
+
+No real data or production systems are included.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
+
+---
+
+This repository reflects my ongoing professional development in cybersecurity, combining both technical expertise and security best practices.
