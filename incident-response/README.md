@@ -1,130 +1,195 @@
-# Incidentes de Ciberseguridad — Máster Profesional de FP en Ciberseguridad
+# 🚨 Cybersecurity Incident Response — Cybersecurity Master's Program
 
-Este módulo se centra en la gestión integral de incidentes de ciberseguridad, desde la identificación y clasificación de activos hasta la respuesta técnica, comunicación con equipos CSIRT y monitorización mediante SIEM.
-Incluye prácticas con entornos simulados de detección, análisis y mitigación de ataques reales.
+This module focuses on the full lifecycle of cybersecurity incident management, from asset identification and risk prioritization to technical response, CSIRT coordination, and SIEM-based monitoring.
 
-
-## Resumen de prácticas
-
-### 🧩 Identificación y auditoría de activos críticos
-
-Se diseñó la arquitectura de red de una empresa ficticia con entornos segmentados (LAN, DMZ y Smart Factory).
-Se inventariaron los activos clave —como servidores SOC, ERP, NAS, PLC y SCADA—, evaluando su criticidad, dependencias y requisitos de seguridad.
-
-Para cada activo se definieron:
-- Controles antimalware, permisos, cumplimiento normativo y monitorización.
-- Auditorías aplicables: hacking ético, seguridad perimetral, revisión forense y legal.
-- Estrategias de mejora continua mediante modelos CMMI y el ciclo PDCA, priorizando la optimización constante y la respuesta ágil ante incidentes.
-
-
-### ⚙️ Priorización de riesgos y taxonomía de incidentes
-
-Se estableció una jerarquía de activos por capas (comunicación, servicio, equipamiento e información) para evaluar amenazas y salvaguardas.
-Se aplicaron metodologías de valoración de riesgo y taxonomía de incidentes:
-- SOC: 
-    Intrusión y compromiso de seguridad lógica.
-
-- ERP: 
-    Ataques DoS que afectan la disponibilidad.
-
-- Base de datos de inventario: 
-    Compromiso de integridad mediante inyección SQL.
-
-- Router: 
-    Interrupciones por fallos de configuración o ataques remotos.
-
-El resultado fue una matriz de riesgo y gráficos de criticidad, que permiten priorizar los activos y las respuestas ante ataques.
-
-
-### 🕵️ Análisis de un incidente de phishing y persistencia
-
-Se simuló un incidente de ingeniería social (phishing) en el que un empleado descargaba un ejecutable malicioso (“Putty.exe”).
-Mediante análisis forense se detectaron:
-- Conexiones activas no autorizadas (puerto 139 / SMB).
-- Ejecución de procesos sospechosos (nc.exe) vinculados a Netcat como puerta trasera.
-- Entradas persistentes en el registro de Windows (HKCU\Software\Microsoft\Windows\CurrentVersion\Run).
-- Errores en el visor de eventos que evidenciaban intentos de ejecución automática.
-
-Se verificó la integridad de la imagen del disco con QuickHash, detectando archivos corrompidos y alteraciones en cabeceras, demostrando la manipulación de evidencias.
-
-
-### 🧠 Gestión y respuesta ante incidentes
-
-Se documentaron los procesos de detección, análisis, contención, mitigación y recuperación:
-- Monitorización proactiva con IDS/SIEM y revisión de logs en tiempo real.
-- Clasificación de incidentes según criticidad (bajo, medio, alto).
-- Roles definidos en el CSIRT corporativo: CISO, SOC, TI, Legal, CEO/CSO.
-- Planes de formación, simulacros y comunicación interna.
-
-Se elaboró un playbook de respuesta ante ransomware, incluyendo:
-- Aislamiento de sistemas comprometidos.
-- No pago del rescate.
-- Restauración desde copias verificadas.
-- Refuerzo de configuraciones y concienciación de empleados.
-
-
-### 🧾 Notificación y coordinación con CSIRT
-
-Se redactó un informe realista de incidente web con inyección de código malicioso (Web Attack):
-- Clasificación oficial: 
-    Ataque Web – Inyección de Código Malicioso.
-
-- Nivel de peligrosidad: 
-    Crítico.
-
-- Impacto: 
-    Muy Alto, con riesgo de exfiltración y manipulación de datos.
-
-- Obligación de notificación: 
-    CCN-CERT (CSIRT nacional).
-
-Incluyó todos los campos de notificación exigidos (fecha, impacto, medidas, daños reputacionales y regulación afectada: ENS, RGPD), junto con fases de comunicación: aviso inicial, seguimiento y cierre.
-
-
-### 🧩 Implementación de un IDS con Snort
-
-Se configuró un entorno con Ubuntu Server, SOC, IDS (Snort) y WebServer en DMZ:
-- Configuración de red interna (192.168.2.0/24) y externa (192.168.1.0/24).
-- Instalación y ajuste de Snort (/etc/snort/snort.conf).
-- Creación de reglas personalizadas para:
-    Pings internos y externos.
-    Conexiones SSH y HTTP.
-    Accesos no autorizados a /phpmyadmin.
-
-- Verificación de logs (/var/log/snort/alert) y validación con pruebas reales de tráfico.
-
-
-### 📊 Monitorización con ELK Stack
-
-Se implementó una pila SIEM con Elastic Stack (Elasticsearch, Logstash, Kibana, Filebeat):
-- Elasticsearch: 
-    Almacenamiento y consulta de logs.
-
-- Kibana: 
-    Panel de control web para visualización.
-
-- Filebeat: 
-    Envío de registros de Snort al servidor de Logstash.
-
-- Logstash: 
-    Filtrado y creación de pipelines personalizados.
-
-Se diseñaron dashboards con:
-- Contadores de PINGs internos y externos.
-- Histogramas de intentos de conexión SSH y accesos a phpMyAdmin.
-
-
-## 🧰 Herramientas y tecnologías utilizadas
-
-| Categoría | Herramientas / Tecnologías |
-|------------|----------------------------|
-| **Análisis y detección** | Snort, IDS/IPS, Nmap, Wireshark |
-| **Gestión y monitorización** | ELK Stack (Elastic, Logstash, Kibana, Filebeat) |
-| **Gestión de incidentes** | SIEM, SOC, QuickHash, Visor de eventos |
-| **Respuesta y mitigación** | Modelos PDCA y CMMI, CSIRT, CCN-CERT |
-| **Sistemas y redes** | Ubuntu Server, Windows, DMZ, VLAN |
-| **Metodologías** | Taxonomía de incidentes, Gestión de riesgos, ENS, RGPD |
-
+It includes hands-on labs simulating real-world attack detection, analysis, and mitigation scenarios.
 
 ---
-Estas prácticas muestran la aplicación completa del ciclo de vida de gestión de incidentes, desde la detección inicial hasta la mitigación y la comunicación con equipos CSIRT, reforzando las capacidades de respuesta ante ciberataques reales.
+
+## 🧠 Lab Overview
+
+These exercises demonstrate practical incident response workflows, combining technical analysis, organizational processes, and regulatory compliance to effectively handle cybersecurity incidents.
+
+---
+
+## 📂 Lab Summary
+
+### 🧩 Asset Identification & Critical Infrastructure Auditing
+
+Design of a segmented enterprise network architecture including:
+- LAN  
+- DMZ  
+- Smart Factory environments  
+
+Key assets identified:
+- SOC servers  
+- ERP systems  
+- NAS storage  
+- PLC and SCADA systems  
+
+For each asset:
+- Security controls defined (antimalware, access control, monitoring)  
+- Applicable audits (pentesting, perimeter security, forensic and legal reviews)  
+- Continuous improvement strategies using **CMMI** and **PDCA** models  
+
+---
+
+### ⚙️ Risk Prioritization & Incident Taxonomy
+
+Definition of asset hierarchy across multiple layers:
+- Communication  
+- Services  
+- Infrastructure  
+- Information  
+
+Risk analysis applied to real scenarios:
+
+- **SOC:** Logical intrusion and compromise  
+- **ERP:** DoS attacks affecting availability  
+- **Inventory database:** SQL Injection impacting integrity  
+- **Router:** Service disruption due to misconfiguration or attacks  
+
+**Outcome:**  
+Risk matrix and criticality analysis to prioritize incident response strategies.
+
+---
+
+### 🕵️ Phishing Incident & Persistence Analysis
+
+Simulation of a phishing attack where a user executed a malicious file (`Putty.exe`).
+
+**Findings:**
+- Unauthorized active connections (port 139 / SMB)  
+- Suspicious processes (`nc.exe` → Netcat backdoor)  
+- Persistence mechanisms in Windows Registry:  
+  `HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run`  
+- Event Viewer errors indicating automated execution attempts  
+
+**Forensic validation:**
+- Disk integrity verified with QuickHash  
+- Detection of corrupted files and header manipulation  
+
+**Result:**  
+Evidence of system compromise and tampering.
+
+---
+
+### 🧠 Incident Management & Response
+
+Documentation of full incident response lifecycle:
+
+- Detection (SIEM / IDS / log monitoring)  
+- Analysis  
+- Containment  
+- Mitigation  
+- Recovery  
+
+**Organizational structure:**
+- CISO  
+- SOC team  
+- IT  
+- Legal  
+- Executive leadership (CEO / CSO)  
+
+**Ransomware playbook:**
+- Isolation of compromised systems  
+- No ransom payment policy  
+- Recovery from verified backups  
+- System hardening and user awareness training  
+
+---
+
+### 🧾 Incident Reporting & CSIRT Coordination
+
+Creation of a realistic incident report for a web attack involving malicious code injection.
+
+**Classification:**
+- Web Attack – Malicious Code Injection  
+
+**Severity:**
+- Critical  
+
+**Impact:**
+- High risk of data exfiltration and manipulation  
+
+**Regulatory reporting:**
+- National CSIRT (CCN-CERT)  
+
+Report includes:
+- Timeline of events  
+- Impact assessment  
+- Mitigation measures  
+- Reputational impact  
+- Compliance considerations (ENS, GDPR)  
+
+Communication phases:
+- Initial notification  
+- Follow-up updates  
+- Incident closure  
+
+---
+
+### 🧩 IDS Implementation with Snort
+
+Deployment of a lab environment including:
+- Ubuntu Server  
+- SOC  
+- Snort IDS  
+- Web server in DMZ  
+
+Configuration:
+- Internal network: `192.168.2.0/24`  
+- External network: `192.168.1.0/24`  
+
+**Custom rules created for:**
+- ICMP (internal/external ping detection)  
+- SSH connections  
+- HTTP traffic  
+- Unauthorized access attempts to `/phpmyadmin`  
+
+**Validation:**
+- Log analysis (`/var/log/snort/alert`)  
+- Real traffic simulation  
+
+---
+
+### 📊 SIEM Monitoring with ELK Stack
+
+Implementation of a SIEM solution using the Elastic Stack:
+
+- **Elasticsearch:** Log storage and querying  
+- **Logstash:** Data processing and pipeline creation  
+- **Kibana:** Visualization dashboards  
+- **Filebeat:** Log forwarding from Snort  
+
+**Dashboards included:**
+- Internal vs external ping counters  
+- SSH connection attempts  
+- Access attempts to phpMyAdmin  
+
+---
+
+## 🧰 Tools & Technologies
+
+| Category | Tools / Technologies |
+|----------|---------------------|
+| **Detection & Analysis** | Snort, IDS/IPS, Nmap, Wireshark |
+| **Monitoring & SIEM** | ELK Stack (Elasticsearch, Logstash, Kibana, Filebeat) |
+| **Incident Handling** | SIEM, SOC workflows, QuickHash, Event Viewer |
+| **Response & Mitigation** | PDCA, CMMI, CSIRT, CCN-CERT |
+| **Systems & Networking** | Ubuntu Server, Windows, DMZ, VLAN |
+| **Methodologies** | Incident taxonomy, Risk management, ENS, GDPR |
+
+---
+
+## 🎯 Key Takeaways
+
+These labs demonstrate the complete incident response lifecycle in realistic environments, focusing on:
+
+- Threat detection and analysis  
+- Incident classification and prioritization  
+- Technical and organizational response  
+- SIEM-based monitoring and visibility  
+- Communication with CSIRT and regulatory compliance  
+
+---
