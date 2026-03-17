@@ -1,10 +1,12 @@
-# 🛡️ Cybersecurity Lab
+# 🛡️ Cybersecurity Lab — Hands-on Security Portfolio
 
 Personal repository containing hands-on labs and projects developed during my Professional Master's Degree in Cybersecurity (Information Technology).
 
 This repository covers practical work across key cybersecurity domains, including digital forensics, system hardening, ethical hacking, incident response, compliance, and secure deployment.
 
 The goal of this lab is to showcase my practical experience applying professional tools, methodologies, and security best practices.
+
+Focused on real-world scenarios across Red Team, Blue Team, DFIR, and DevSecOps.
 
 ---
 
@@ -99,7 +101,7 @@ Study and application of key cybersecurity frameworks and standards:
 
 ---
 
-## 🧱 Secure Deployment *(In Progress)*
+## 🧱 Secure Deployment 
 
 Focused on secure system deployment in production environments:
 
@@ -136,8 +138,7 @@ To demonstrate practical cybersecurity skills across the full security lifecycle
 
 ## 📅 Current Status
 
-Currently working on the **Secure Deployment** module (final stage of the program).  
-All other modules are completed and documented in this repository.
+All practical modules completed, covering offensive security, defensive strategies, incident response, and secure deployment.
 
 ---
 
@@ -146,6 +147,16 @@ All other modules are completed and documented in this repository.
 All labs and examples are for **educational purposes only** and were conducted in controlled environments.
 
 No real data or production systems are included.
+
+---
+
+## 🧠 Core Skills Demonstrated
+
+- Offensive Security (Pentesting, Exploitation)
+- Defensive Security (Hardening, Monitoring, SIEM)
+- Digital Forensics & Incident Response (DFIR)
+- Security Governance & Compliance (GRC)
+- DevSecOps & Secure Deployment
 
 ---
 
